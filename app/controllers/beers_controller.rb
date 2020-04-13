@@ -25,9 +25,12 @@ class BeersController < ApplicationController
     #     @beer.update(beer_params)
     # end
 
-    # def destroy
-
-    # end
+    def destroy
+        @user = User.find(session[:user_id])
+        @user.beers.find do |b|
+            b.id == 
+        end
+    end
 
     private
 

@@ -1,0 +1,12 @@
+<h1>Add a beer</h1>
+
+<%= form_with(model: @user_beer, local: true) do |f| %>
+  <p>
+    <%= f.label "Beer"%><br>
+    <%= f.collection_select :beer_id, @beers, :id, :name, placeholder: "Select a beer" %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

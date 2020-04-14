@@ -2,6 +2,7 @@ class UserBreweriesController < ApplicationController
 
   def new 
     @user_brewery = UserBrewery.new
+    @breweries = Brewery.all 
   end
 
   def create 

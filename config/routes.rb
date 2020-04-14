@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  resources :distributions
->>>>>>> distribution-component
+  resources :distributions, only: [:show]
   resources :user_breweries, only: [:new, :create, :destroy]
-=======
   resources :user_comments
->>>>>>> userComment-branch
   root 'pages#home'
   resources :locations
   resources :breweries, only: [:index, :show]

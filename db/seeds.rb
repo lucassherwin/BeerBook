@@ -21,9 +21,24 @@ beer1 = Beer.create(name: 'beer1', beer_category: category1, brewery: brewery1)
 #     Beer.create(name: 'my beer', abv: rand(1..10))
 # end
 
-unparsed_data = RestClient.get("https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&facet=style_name&facet=cat_name&facet=name_breweries&facet=country")
+#breweries
+unparsed_brewery_data = RestClient.get("https://api.openbrewerydb.org/breweries")
+parsed_brewery_data = JSON.parse(unparsed_brewery_data)
+
+
+
+#cities
+unparsed_city_data = RestClient.get("https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&facet=style_name&facet=cat_name&facet=name_breweries&facet=country")
 parsed_data = JSON.parse(unparsed_data)
-city = parsed_data["records"][0]["fields"]["city"]
+# city = parsed_data["records"][0]["fields"]["city"]
 # puts city
 # Brewery.create(name: 'brewery')
-Location.create(city: parsed_data["records"][0]["fields"]["city"], brewery: brewery1)
+# Location.create(city: parsed_data["records"][0]["fields"]["city"], brewery: brewery1)
+
+city_names = []
+parsed_data["records"].each do |d|
+    city_names << d['fields']['city']
+end
+
+city_names
+# puts city_names

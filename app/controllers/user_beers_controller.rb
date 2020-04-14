@@ -5,7 +5,9 @@ class UserBeersController < ApplicationController
   end
 
   def create 
-    @user_beer = UserBeer.create(user_id: session[:user_id], user_beer_params)
+    @user_beer = UserBeer.new(user_beer_params)
+    @user_beer.user_id = session[:user_id]
+    @user_beer.save
 
     if @user_beer.valid?
       redirect_to @user_beer.user 

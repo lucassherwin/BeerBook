@@ -1,0 +1,30 @@
+<h1>Breweries Index Page</h1>
+<hr>
+
+<h2>Breweries</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type of Distribution</th>
+      <th>Street</th>
+      <th>Phone</th>
+      <th>Website</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @breweries.each do |brewery| %>
+      <tr>
+        <td><%= brewery.name %></td>
+        <td><%= brewery.distribution %></td>
+        <td><%= brewery.street %></td>
+        <td><%= brewery.phone %></td>
+        <td><%= brewery.website_url %></td>
+        <td><%= link_to "Show", brewery %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

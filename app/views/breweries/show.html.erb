@@ -1,0 +1,26 @@
+<h1><%= @brewery.name %>'s Show Page</h1>
+<hr>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type of Distribution</th>
+      <th>Street</th>
+      <th>Phone</th>
+      <th>Website</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @breweries.each do |brewery| %>
+      <tr>
+        <td><%= brewery.name %></td>
+        <td><%= brewery.distribution %></td>
+        <td><%= brewery.street %></td>
+        <td><%= brewery.phone %></td>
+        <td><%= brewery.website_url %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

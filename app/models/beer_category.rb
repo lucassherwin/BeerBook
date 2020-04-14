@@ -1,0 +1,2 @@
+class BeerCategory < ApplicationRecord
+end

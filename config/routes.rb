@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_breweries
   root 'pages#home'
   resources :locations
   resources :breweries, only: [:index, :show]

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  resources :distributions
+>>>>>>> distribution-component
   resources :user_breweries, only: [:new, :create, :destroy]
 =======
   resources :user_comments

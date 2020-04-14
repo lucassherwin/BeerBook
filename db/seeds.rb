@@ -13,7 +13,8 @@ Location.destroy_all
 Brewery.destroy_all
 
 brewery1 = Brewery.create(name: "my brewery")
-beer1 = Beer.create(name: 'beer1', beer_category: 'ale', )
+category1 = BeerCategory.create(category: 'beer')
+beer1 = Beer.create(name: 'beer1', category_id: category1, brewery: brewery1)
 
 
 # 10.times do

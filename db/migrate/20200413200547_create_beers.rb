@@ -4,7 +4,7 @@ class CreateBeers < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :abv 
       t.integer :brewery_id
-      t.integer :beer_category_id
+      t.string :category
 
       t.timestamps
     end

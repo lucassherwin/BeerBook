@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_143228) do
     t.string "name"
     t.integer "abv"
     t.integer "brewery_id"
-    t.integer "beer_category_id"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,9 +30,6 @@ ActiveRecord::Schema.define(version: 2020_04_14_143228) do
   create_table "breweries", force: :cascade do |t|
     t.string "name"
     t.string "street"
-    t.string "phone"
-    t.integer "location_id"
-    t.string "website_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

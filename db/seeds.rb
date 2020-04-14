@@ -14,16 +14,16 @@ Brewery.destroy_all
 
 brewery1 = Brewery.create(name: "my brewery")
 category1 = BeerCategory.create(category: 'beer')
-beer1 = Beer.create(name: 'beer1', category_id: category1, brewery: brewery1)
+beer1 = Beer.create(name: 'beer1', beer_category: category1, brewery: brewery1)
 
 
 # 10.times do
 #     Beer.create(name: 'my beer', abv: rand(1..10))
 # end
 
-# unparsed_data = RestClient.get("https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&facet=style_name&facet=cat_name&facet=name_breweries&facet=country")
-# parsed_data = JSON.parse(unparsed_data)
-# city = parsed_data["records"][0]["fields"]["city"]
-# # puts city
+unparsed_data = RestClient.get("https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&facet=style_name&facet=cat_name&facet=name_breweries&facet=country")
+parsed_data = JSON.parse(unparsed_data)
+city = parsed_data["records"][0]["fields"]["city"]
+# puts city
 # Brewery.create(name: 'brewery')
-# Location.create(city: parsed_data["records"][0]["fields"]["city"], brewery_id: 1)
+Location.create(city: parsed_data["records"][0]["fields"]["city"], brewery: brewery1)

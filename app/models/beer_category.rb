@@ -1,3 +1,3 @@
 class BeerCategory < ApplicationRecord
-  belongs_to :beer
+  has_many :beers
 end

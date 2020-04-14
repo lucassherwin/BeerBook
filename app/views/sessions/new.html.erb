@@ -1,0 +1,25 @@
+<h1>Log In</h1>
+
+<%# local: true when using form_with %>
+<%# form_with by default is remote:true %>
+<%= form_with(url: login_path, local: true) do |f| %>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.email_field :email, placeholder: "Enter your email" %>
+  </p>
+
+  <p>
+    <%# referring to password_digest attribute %>
+    <%= f.label :password %><br>
+    <%= f.password_field :password, placeholder: "Enter a password" %>
+  </p>
+
+  <p>
+    <%# checks to see if user object is persisted in database %>
+    <%= f.submit "Log in" %>
+  </p>
+<% end %>
+
+<p>
+  <%= link_to "Return to home page", root_path %>
+</p>

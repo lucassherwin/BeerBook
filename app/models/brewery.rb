@@ -1,4 +1,4 @@
 class Brewery < ApplicationRecord
   has_many :beers
-  has_many :locations
+  belongs_to :location
 end

@@ -1,3 +1,3 @@
 class Location < ApplicationRecord
-  belongs_to :brewery 
+  has_many :breweries
 end

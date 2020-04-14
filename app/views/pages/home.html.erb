@@ -1,0 +1,22 @@
+<h1>Welcome to ꓭeerꓭook</h1>
+<hr>
+
+<h2>Log in</h2>
+<%#= form_with(url: login_path, local: true) do |f| %>
+  <p>
+    <%#= f.label :email %><br>
+    <%#= f.email_field :email, placeholder: "Enter your email" %>
+  </p>
+
+  <p>
+    <%# refers to password_digest attribute in users table %>
+    <%#= f.label :password %><br>
+    <%#= f.password_field :password, placeholder: "Enter a password" %>
+  </p>
+
+  <p><%#= f.submit "Log in" %></p>
+<%# end %>
+
+<p><strong>Dont have an account? </strong><%= link_to "Sign up", signup_path %></p>
+
+

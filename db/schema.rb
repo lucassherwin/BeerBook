@@ -10,17 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_214251) do
+ActiveRecord::Schema.define(version: 2020_04_14_143228) do
 
   create_table "beer_categories", force: :cascade do |t|
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "category"
   end
 
   create_table "beers", force: :cascade do |t|
     t.string "name"
-    t.string "style"
     t.integer "abv"
     t.integer "brewery_id"
     t.integer "beer_category_id"
@@ -32,21 +31,16 @@ ActiveRecord::Schema.define(version: 2020_04_14_214251) do
     t.string "name"
     t.string "street"
     t.string "phone"
+    t.integer "location_id"
     t.string "website_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "locations", force: :cascade do |t|
-    t.integer "brewery_id"
     t.string "city"
     t.string "state"
     t.string "country"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "pages", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

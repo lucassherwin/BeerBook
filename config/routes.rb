@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :distributions
   resources :user_breweries, only: [:new, :create, :destroy]
   root 'pages#home'
   resources :locations

@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :distributions, only: [:show]
   resources :user_breweries, only: [:new, :create, :destroy]
   resources :user_comments
+=======
+
+  resources :beer_categories
+  resources :user_breweries, only: [:new, :create, :destroy]
+
+  resources :user_comments
+
+>>>>>>> beer_category-branch
   root 'pages#home'
   resources :locations
   resources :breweries, only: [:index, :show]

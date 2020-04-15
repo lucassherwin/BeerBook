@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    byebug
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       # saving user id in session hash, backed by browser's cookies
@@ -11,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       # flash.now[:danger] = "There was something wrong with your login information"
-      render root_path
+      redirect_to root_path
     end
   end
 

@@ -5,21 +5,18 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Type of Distribution</th>
       <th>Street</th>
-      <th>Phone</th>
       <th>Website</th>
+      <th>Description</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @breweries.each do |brewery| %>
       <tr>
-        <td><%= brewery.name %></td>
-        <td><%= brewery.distribution %></td>
-        <td><%= brewery.street %></td>
-        <td><%= brewery.phone %></td>
-        <td><%= brewery.website_url %></td>
+        <td><%= @brewery.name %></td>
+        <td><%= @brewery.street %></td>
+        <td><%= @brewery.website_url %></td>
+        <td><%= @brewery.description %></td>
       </tr>
     <% end %>
   </tbody>

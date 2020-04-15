@@ -55,13 +55,13 @@ end
 unparsed_beer_data = RestClient.get("https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&facet=style_name&facet=cat_name&facet=name_breweries&facet=country")
 parsed_beer_data = JSON.parse(unparsed_beer_data)
 
-parsed_beer_data['records'].each_with_index do |b, i|
+parsed_beer_data['records'].each do |b|
     Location.create(city: b['fields']['city'], state: b['fields']['state'], country: b['fields']['country'])
 
-    Brewery.create(name: b['fields']['name_breweries'], street: b['fields']['address1'])
+    brew = Brewery.create(name: b['fields']['name_breweries'], street: b['fields']['address1'])
 
-    beer = Beer.create(name: b['fields']['name'], abv: b['fields']['abv'], category: b['fields']['cat_name'])
-    beer.brewery_id = Brewery.all[i].id
+    beer = Beer.new(name: b['fields']['name'], abv: b['fields']['abv'], category: b['fields']['cat_name'])
+    beer.brewery= brew
     beer.save
 end
 

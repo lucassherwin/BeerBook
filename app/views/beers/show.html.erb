@@ -4,11 +4,12 @@
 
 Users Comments: <br>
 <% @beer.user_comments.each do |c| %>
-     <%= c.comment %> <br>
+     <%= "#{c.user.username}: #{c.comment}" %> <br> <br>
 <% end %>
 
+Leave a comment! <br>
 <%= form_with(url: user_comments_path, local: true) do |f| %>
-    <%= f.label 'User Comment' %>
+    
     <%= f.text_area :comment, placeholder: "Leave a comment" %>
 
     <%= f.submit name: "#{params[:id]}" %>

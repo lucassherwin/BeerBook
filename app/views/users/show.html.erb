@@ -1,5 +1,12 @@
 <h1><%= @user.username %>'s profile</h1>
 
+<%= form_tag("/search", method: :get) do %>
+  <%= label_tag(:id, "Search by Beer:") %>
+  <%= collection_select(:beer, :id, Beer.all, :id, :name) %>
+
+  <%= submit_tag("Search") %>
+<% end %>
+
 <h2>Beers</h2>
 
 <table>

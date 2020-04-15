@@ -1,5 +1,3 @@
 <h1><%= @beer.name %></h1>
 
-<ul>
-
-</ul>
+<%= button_to "Add", user_beers_path, name: "#{params[:id]}" %>

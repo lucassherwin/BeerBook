@@ -9,6 +9,12 @@ class BeersController < ApplicationController
         #find
     end
 
+    def search
+        @beer= Beer.find(params[:beer][:id])
+    
+        redirect_to @beer
+    end
+
     # def new
     #     @beer = Beer.new
     # end
@@ -26,10 +32,10 @@ class BeersController < ApplicationController
     # end
 
     def destroy
-        @user = User.find(session[:user_id])
-        @user.beers.find do |b|
-            b.id == 
-        end
+        # @user = User.find(session[:user_id])
+        # @user.beers.find do |b|
+        #     b.id == 
+        # end
     end
 
     private

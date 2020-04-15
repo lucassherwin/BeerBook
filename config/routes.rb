@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :distributions, only: [:show]
   resources :user_breweries, only: [:new, :create, :destroy]
   resources :user_comments
 
@@ -8,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :user_comments
 
-  root 'pages#home'
+  root 'sessions#new'
   resources :locations
   resources :breweries, only: [:index, :show]
   resources :user_beers, only: [:new, :create, :destroy]
@@ -19,5 +18,5 @@ Rails.application.routes.draw do
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
-  get 'logout', to: 'sessions#destroy'
+  delete 'logout', to: 'sessions#destroy'
 end

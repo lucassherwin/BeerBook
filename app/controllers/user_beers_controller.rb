@@ -9,13 +9,12 @@ class UserBeersController < ApplicationController
     params.each do |k, v|
       new_hash[v] = k
     end
-    # byebug
+  
     user = current_user
-    # beer_id_string = params.key("Add")
-    # beer_id = beer_id_string.to_i
+  
     beer_id = new_hash["Add"].to_i
     @user_beer = UserBeer.new(user_id: session[:user_id], beer_id: beer_id )
-    # @user_beer.user_id = session[:user_id]
+   
     @user_beer.save
 
     if @user_beer.valid?

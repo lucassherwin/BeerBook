@@ -1,3 +1,15 @@
 <h1><%= @beer.name %></h1>
 
 <%= button_to "Add", user_beers_path, name: "#{params[:id]}" %>
+
+Users Comments:
+<% @beer.user_comments.each do |c| %>
+    <%= user_id.name %>: <%= comment %>
+<% end %>
+
+<%= form_with(url: user_beers_path, local: true) do |f| %>
+    <%= f.label 'User Comment' %>
+    <%= f.text_area :comment, placeholder: "Leave a comment" %>
+
+    <%= f.submit name: "#{params[:id]}" %>
+<% end %>

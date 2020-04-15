@@ -12,7 +12,22 @@ class UserCommentsController < ApplicationController
     end
 
     def create
+        byebug
         @comment = UserComment.create(comment_params)
+        new_hash = {}
+        params.each do |k, v|
+            new_hash[v] = k
+        end
+        user = current_user
+        beer_id = new_hash["Add"].to_i
+        @user_beer = UserBeer.new(user_id: session[:user_id], beer_id: beer_id )
+        @user_beer.save
+
+    if @user_beer.valid?
+      redirect_to @user_beer.user 
+    else
+      render :new 
+    end
     end
 
     def edit

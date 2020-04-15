@@ -5,8 +5,13 @@ class UserBeersController < ApplicationController
   end
 
   def create 
-    @user_beer = UserBeer.new(user_beer_params)
-    @user_beer.user_id = session[:user_id]
+  
+    user = current_user
+    beer_id_string = params.key("Add")
+    beer_id = beer_id_string.to_i
+
+    @user_beer = UserBeer.new(user_id: session[:user_id], beer_id: beer_id )
+    # @user_beer.user_id = session[:user_id]
     @user_beer.save
 
     if @user_beer.valid?
@@ -23,9 +28,9 @@ class UserBeersController < ApplicationController
     redirect_to user_path(user.id)
   end
 
-  private 
+  # private 
 
-  def user_beer_params
-    params.require(:user_beer).permit(:beer_id)
-  end
+  # def user_beer_params
+  #   params.require(:user_beer).permit(:beer_id)
+  # end
 end

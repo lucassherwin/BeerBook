@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    byebug
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       # saving user id in session hash, backed by browser's cookies

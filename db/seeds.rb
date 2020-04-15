@@ -58,12 +58,16 @@ parsed_beer_data = JSON.parse(unparsed_beer_data)
 parsed_beer_data['records'].each_with_index do |b, i|
     Location.create(city: b['fields']['city'], state: b['fields']['state'], country: b['fields']['country'])
 
-    Brewery.create(name: b['fields']['name_breweries'], street: b['fields']['address1'])
+    brew = Brewery.create(name: b['fields']['name_breweries'], street: b['fields']['address1'])
 
-    beer = Beer.create(name: b['fields']['name'], abv: b['fields']['abv'], category: b['fields']['cat_name'])
-    beer.brewery_id = Brewery.all[i].id
-    beer.save
+    Beer.create(name: b['fields']['name'], abv: b['fields']['abv'], category: b['fields']['cat_name'], brewery_id: brew.id)
 end
+
+# parsed_beer_data['records'].each_with_index do |b, i|
+#     beer =  Beer.new(name: b['fields']['name'], abv: b['fields']['abv'], category: b['fields']['cat_name'])
+#     beer.brewery_id = Brewery.all[i].id
+#     beer.save
+# end
 
 
 # #cities

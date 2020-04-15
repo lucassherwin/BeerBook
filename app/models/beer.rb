@@ -6,5 +6,5 @@ class Beer < ApplicationRecord
   has_many :beer_categories
 
   belongs_to :brewery
-  belongs_to :beer_category
+  # belongs_to :beer_category
 end

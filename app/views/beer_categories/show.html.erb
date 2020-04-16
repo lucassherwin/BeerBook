@@ -30,6 +30,6 @@
 
 <ul>
 <% @beer_category.beers.each do |beer| %>
-  <li><%= beer.name %></li>
+  <li><%= link_to "#{beer.name}", beer %></li>
 <% end %>
 </ul>

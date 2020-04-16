@@ -21,7 +21,6 @@ class BreweriesController < ApplicationController
     parsed_brew_data['records'].each do |b|
       @beer_name << b['fields']['name']
       @beer_desc << b['fields']['descript']
-      
     end
     # byebug
   end

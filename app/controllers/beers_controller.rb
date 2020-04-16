@@ -14,28 +14,8 @@ class BeersController < ApplicationController
     
         redirect_to @beer
     end
-
-    # def new
-    #     @beer = Beer.new
-    # end
-
-    # def create
-    #     @beer = Beer.create(beer_params)
-    # end 
-
-    # def edit
-    #     #find
-    # end
-
-    # def update
-    #     @beer.update(beer_params)
-    # end
-
+    
     def destroy
-        # @user = User.find(session[:user_id])
-        # @user.beers.find do |b|
-        #     b.id == 
-        # end
     end
 
     private

@@ -14,7 +14,7 @@ class UserBeersController < ApplicationController
   
     beer_id = new_hash["Add"].to_i
     @user_beer = UserBeer.new(user_id: session[:user_id], beer_id: beer_id )
-   
+
     @user_beer.save
 
     if @user_beer.valid?
@@ -30,10 +30,4 @@ class UserBeersController < ApplicationController
     @user_beer.destroy
     redirect_to user_path(user.id)
   end
-
-  # private 
-
-  # def user_beer_params
-  #   params.require(:user_beer).permit(:beer_id)
-  # end
 end

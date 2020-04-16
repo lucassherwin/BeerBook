@@ -1,8 +1,8 @@
 <div class="ui secondary  menu">
   <% if current_user %>
-   <a href=<%= "/users/#{current_user.id}" %> class="item">Profile page</a>
+    <a href=<%= "/users/#{current_user.id}" %> class="item">Profile page</a>
   <% end %>
- 
+
   <a href="/beers" class="item">Beers</a>
   <div class="right menu">
     <div class="item">
@@ -13,10 +13,10 @@
             <%= label_tag(:id, "Search by Beer:") %>
             <%= collection_select(:beer, :id, Beer.all, :id, :name) %>
 
-             <%= submit_tag("Search") %>
+            <%= submit_tag("Search") %>
           <% end %>
         <% end %>
- 
+
       </div>
     </div>
     <% if current_user %>

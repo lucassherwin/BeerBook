@@ -14,10 +14,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       # saving user id in session hash, backed by browser's cookies
       session[:user_id] = user.id
-      # flash[:success] = "You have successfully logged in"
       redirect_to user
     else
-      # flash.now[:danger] = "There was something wrong with your login information"
       redirect_to root_path
     end
   end

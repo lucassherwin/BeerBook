@@ -15,7 +15,7 @@ BeerCategory.destroy_all
 
 #BeerCategories
 # unparsed_beerCategory_data = RestClient.get("https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&facet=style_name&facet=cat_name&facet=name_breweries&facet=country")
-unparsed_beerCategory_data = RestClient.get("https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&rows=50&facet=style_name&facet=cat_name&facet=name_breweries&facet=country")
+unparsed_beerCategory_data = RestClient.get("https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&rows=100&facet=style_name&facet=cat_name&facet=name_breweries&facet=country")
 parsed_beerCategory_data = JSON.parse(unparsed_beerCategory_data)
 
 category = []
@@ -30,7 +30,7 @@ end
 #name, abv, brewery_id, beer_category_id
 
 # unparsed_beer_data = RestClient.get("https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&facet=style_name&facet=cat_name&facet=name_breweries&facet=country")
-unparsed_beer_data = RestClient.get("https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&rows=50&facet=style_name&facet=cat_name&facet=name_breweries&facet=country")
+unparsed_beer_data = RestClient.get("https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&rows=100&facet=style_name&facet=cat_name&facet=name_breweries&facet=country")
 parsed_beer_data = JSON.parse(unparsed_beer_data)
 
 parsed_beer_data['records'].each do |b|

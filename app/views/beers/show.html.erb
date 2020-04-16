@@ -1,8 +1,8 @@
 <div class="ui secondary  menu">
   <% if current_user %>
-   <a href=<%= "/users/#{current_user.id}" %> class="item">Profile page</a>
+    <a href=<%= "/users/#{current_user.id}" %> class="item">Profile page</a>
   <% end %>
- 
+
   <a href="/beers" class="item">Beers</a>
   <a href="/breweries" class="item">Breweries</a>
   <div class="right menu">
@@ -14,10 +14,10 @@
             <%= label_tag(:id, "Search by Beer:") %>
             <%= collection_select(:beer, :id, Beer.all, :id, :name) %>
 
-             <%= submit_tag("Search") %>
+            <%= submit_tag("Search") %>
           <% end %>
         <% end %>
- 
+
       </div>
     </div>
 
@@ -58,21 +58,19 @@
         <span class="date"><%= "#{c.created_at}" %></span>
       </div>
       <div class="text">
-       <%= "#{c.comment}" %>
+        <%= "#{c.comment}" %>
       </div>
     </div>
   </div>
   <% end %>
 
   Leave a comment! <br>
- 
 
     <%= form_with(url: user_comments_path, local: true, class: "ui reply form") do |f| %>
-         <div class="field">
-            <%= f.text_area :comment, placeholder: "Leave a comment" %>
-         </div>
-         
-            <%= f.submit name: "#{params[:id]}", class: "ui blue labeled submit icon button" %>
+        <div class="field">
+          <%= f.text_area :comment, placeholder: "Leave a comment" %>
+        </div>
+          <%= f.submit name: "#{params[:id]}", class: "ui blue labeled submit icon button" %>
     <% end %>
 </div>
 </div>

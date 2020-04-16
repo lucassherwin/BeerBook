@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  # before_action :current_user
-  # skip_before_action :authorize, only: [:new, :create]
   helper_method :current_user
   before_action :current_user, :authorize
 
@@ -10,7 +8,6 @@ class ApplicationController < ActionController::Base
 
   def authorize
     unless current_user
-      # flash[:danger] = "You must be logged in to perform that action"
       redirect_to root_path
     end
   end

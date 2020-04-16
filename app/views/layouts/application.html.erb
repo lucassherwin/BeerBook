@@ -12,7 +12,6 @@
   <body>
     <% if current_user %>
       <%= link_to "Log out", logout_path, method: :delete %>
-      <%= link_to "Back to Profile", current_user%>
     <% end %>
 
     <%= yield %>

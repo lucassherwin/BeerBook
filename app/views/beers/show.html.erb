@@ -80,7 +80,6 @@
 <table class="ui celled table">
   <thead>
     <tr>
-      <th>Name</th>
       <th>ABV</th>
       <th>Brewery</th>
       <th>Category</th>
@@ -88,7 +87,6 @@
   </thead>
   <tbody>
       <tr>
-        <td data-label="Beer Name"><%= @beer.name %></td>
         <td data-label="ABV"><%= @beer.abv %></td>
         <td data-label="Brewery show page"><%= link_to "#{@beer.brewery.name}",@beer.brewery %></td>
         <td data-label="Category"><%= link_to "#{@beer.beer_category.category}",@beer.beer_category %></td>

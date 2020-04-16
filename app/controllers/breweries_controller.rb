@@ -16,11 +16,11 @@ class BreweriesController < ApplicationController
     
     @website = parsed_brew_data['records'][0]['fields']['website']
 
-    @beer_name = []
-    @beer_desc = []
+    # @beer_name = []
+    # @beer_desc = []
+    @beer_hash = {}
     parsed_brew_data['records'].each do |b|
-      @beer_name << b['fields']['name']
-      @beer_desc << b['fields']['descript']
+      @beer_hash[b['fields']['name']] =  b['fields']['descript']
     end
     # byebug
   end

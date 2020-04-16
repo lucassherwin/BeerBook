@@ -23,16 +23,19 @@
   </tbody>
 </table>
 
-<ul>
-<% @beer_name.each do |b| %>
-  <li><%= b %></li>
-<% end %>
-
-<%= @beer_desc.count %><br>
-</ul>
-
-<ul>
-<% @beer_desc.each do |d| %>
-    <%= d %><br>
-<% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Beer Name</th>
+      <th>Beer Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @beer_hash.each do |b, d| %>
+    <tr>
+      <td><%= b %></td>
+      <td><%= d %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

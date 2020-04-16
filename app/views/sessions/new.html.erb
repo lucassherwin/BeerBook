@@ -1,26 +1,8 @@
-<h1>Log In</h1>
+<div class="ui sizer vertical segment">
+  <div class="ui huge centered header">BeerBook</div>
+  <p></p>
+</div>
 
-<%# local: true when using form_with %>
-<%# form_with by default is remote:true %>
-<%= form_with(url: login_path, local: true) do |f| %>
-  <p>
-    <%= f.label "Username or Email" %><br>
-    <%= f.text_field :username, placeholder: "Username or Email" %>
-  </p>
-
-  <p>
-    <%# referring to password_digest attribute %>
-    <%= f.label :password %><br>
-    <%= f.password_field :password, placeholder: "Enter a password" %>
-  </p>
-
-  <p>
-    <%# checks to see if user object is persisted in database %>
-    <%= f.submit "Log in" %>
-  </p>
-<% end %>
-
-Don't have an account? <%= link_to "Sign up", signup_path %>
 
 
 <div class="ui middle aligned four column centered grid">
@@ -47,8 +29,8 @@ Don't have an account? <%= link_to "Sign up", signup_path %>
         <div class="field">
           <%= form_with(url: login_path, local: true) do |f| %>
             <p>
-              <%= f.label :email %>
-              <%= f.email_field :email, placeholder: "Enter your email" %>
+              <%= f.label "Username or Email" %>
+              <%= f.text_field :username, placeholder: "Enter Username or Email" %>
             </p>
 
             <p>
@@ -63,13 +45,7 @@ Don't have an account? <%= link_to "Sign up", signup_path %>
           <% end %>
         </div>
         
-        <% flash.each do |type, msg| %>
-          <div class="ui error message">
-          <div class="header">Check Credentials</div>
-           <p><%= msg %></p>
-          </div>
-        <% end %>
-      
+        Don't have an account? <%= link_to "Sign up", signup_path %>
     </div>
  </div>
 </div>

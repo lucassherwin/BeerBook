@@ -1,6 +1,7 @@
 <h1><%= @user.username %>'s profile</h1>
 
-<% if session[:user_id] == params[:id] %>
+<%= session[:user_id] %>
+<% if session[:user_id].to_i == params[:id].to_i %>
   <%= form_tag("/search", method: :get) do %>
     <%= label_tag(:id, "Search by Beer:") %>
     <%= collection_select(:beer, :id, Beer.all, :id, :name) %>

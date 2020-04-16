@@ -18,7 +18,7 @@ class UserCommentsController < ApplicationController
     end
 
     user = current_user
-    beer_id = new_hash["Save "].to_i 
+    beer_id = new_hash["Comment"].to_i 
     @user_comment = UserComment.new(comment: params[:comment])
     @user_comment.user_id = session[:user_id]
     @user_comment.beer_id = beer_id

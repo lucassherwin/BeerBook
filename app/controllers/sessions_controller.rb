@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if User.find_by(email: params[:email])
-      user = User.find_by(email: params[:email])
+    if User.find_by(email: params[:username])
+      user = User.find_by(email: params[:username])
     else
       user = User.find_by(username: params[:username])
     end

@@ -1,10 +1,12 @@
 <h1><%= @user.username %>'s profile</h1>
 
-<%= form_tag("/search", method: :get) do %>
-  <%= label_tag(:id, "Search by Beer:") %>
-  <%= collection_select(:beer, :id, Beer.all, :id, :name) %>
+<% if current_user.id == params[:id] %>
+  <%= form_tag("/search", method: :get) do %>
+    <%= label_tag(:id, "Search by Beer:") %>
+    <%= collection_select(:beer, :id, Beer.all, :id, :name) %>
 
-  <%= submit_tag("Search") %>
+    <%= submit_tag("Search") %>
+  <% end %>
 <% end %>
 
 <h2>Beers</h2>
@@ -27,8 +29,8 @@
         <td><%= beer.abv %></td>
         <td><%= link_to "#{beer.brewery.name}", beer.brewery %></td>
         <td><%= beer.beer_category.category %></td>
-        <td><%= link_to "Show", beer %></td>
-        <td><%= link_to "Delete", user_beer_path, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td><%= link_to "Show", beer unless current_user.id == params[:id] %></td>
+        <td><%= link_to "Delete", user_beer_path, method: :delete, data: { confirm: "Are you sure?" } unless current_user.id == params[:id] %></td>
       </tr>
     <% end %>
   </tbody>

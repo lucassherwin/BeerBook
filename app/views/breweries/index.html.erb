@@ -1,6 +1,6 @@
 <div class="ui secondary  menu">
   <% if current_user %>
-   <a href=<%= "/users/#{current_user.id}" %> class="active item">Home</a>
+   <a href=<%= "/users/#{current_user.id}" %> class="item">Profile page</a>
   <% end %>
  
   <a href="/beers" class="item">Beers</a>
@@ -19,11 +19,10 @@
  
       </div>
     </div>
-    <a class="ui item">
-      <% if current_user %>
-        <%= link_to "Log out", logout_path, method: :delete %>
-      <% end %>
+    <% if current_user %>
+    <a class="ui item" <%= link_to "Log out", logout_path, method: :delete %> >
     </a>
+      <% end %>
   </div>
 </div>
 

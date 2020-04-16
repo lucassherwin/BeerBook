@@ -4,7 +4,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:email])
+    if User.find_by(email: params[:email])
+      user = User.find_by(email: params[:email])
+    else
+      user = User.find_by(username: params[:username])
+    end
+    
     if user && user.authenticate(params[:password])
       # saving user id in session hash, backed by browser's cookies
       session[:user_id] = user.id

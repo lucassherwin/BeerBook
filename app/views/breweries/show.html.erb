@@ -30,7 +30,7 @@
 <h1><%= @brewery.name %>'s Show Page</h1>
 <hr>
 
-<table>
+<table class="ui celled table">
   <thead>
     <tr>
       <th>Name</th>
@@ -42,15 +42,15 @@
 
   <tbody>
       <tr>
-        <td><%= @brewery.name %></td>
-        <td><%= @brewery.street %></td>
-        <td><%= @brewery.website %></td>
-        <td><%= @brewery.description %></td>
+        <td data-label="Brewery Name"><%= @brewery.name %></td>
+        <td data-label="Street"><%= @brewery.street %></td>
+        <td data-label="Websity"><%= @brewery.website %></td>
+        <td data-label="Description"><%= @brewery.description %></td>
       </tr>
   </tbody>
 </table>
 
-<table>
+<table class="ui celled table">
   <thead>
     <tr>
       <th>Beer Name</th>
@@ -60,9 +60,11 @@
   <tbody>
     <% @beer_hash.each do |b, d| %>
     <tr>
-      <td><%= b %></td>
-      <td><%= d %></td>
+      <td data-label= "Beer Name"><%= b %></td>
+      <td data-label= "Description"><%= d %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+

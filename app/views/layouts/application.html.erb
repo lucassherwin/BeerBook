@@ -10,9 +10,7 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <%= link_to "Log out", logout_path, method: :delete %>
-    <% end %>
+    
 
     <%= yield %>
   </body>

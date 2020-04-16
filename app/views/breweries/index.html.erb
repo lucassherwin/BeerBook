@@ -1,3 +1,33 @@
+<div class="ui secondary  menu">
+  <% if current_user %>
+   <a href=<%= "/users/#{current_user.id}" %> class="active item">Home</a>
+  <% end %>
+ 
+  <a href="/beers" class="item">Beers</a>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
+
+        <% if session[:user_id].to_i == params[:id].to_i %>
+          <%= form_tag("/search", method: :get) do %>
+            <%= label_tag(:id, "Search by Beer:") %>
+            <%= collection_select(:beer, :id, Beer.all, :id, :name) %>
+
+             <%= submit_tag("Search") %>
+          <% end %>
+        <% end %>
+ 
+      </div>
+    </div>
+    <a class="ui item">
+      <% if current_user %>
+        <%= link_to "Log out", logout_path, method: :delete %>
+      <% end %>
+    </a>
+  </div>
+</div>
+
+
 <%= render 'layouts/user_profile' %>
 
 <h1>Breweries Index Page</h1>
@@ -9,10 +39,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Type of Distribution</th>
       <th>Street</th>
-      <th>Phone</th>
-      <th>Website</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -21,10 +48,7 @@
     <% @breweries.each do |brewery| %>
       <tr>
         <td><%= brewery.name %></td>
-        <td><%= brewery.distribution %></td>
         <td><%= brewery.street %></td>
-        <td><%= brewery.phone %></td>
-        <td><%= brewery.website_url %></td>
         <td><%= link_to "Show", brewery %></td>
       </tr>
     <% end %>

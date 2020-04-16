@@ -1,14 +1,33 @@
-<h1><%= @user.username %>'s profile</h1>
+<div class="ui secondary  menu">
+  <a href="/beers" class="item">Beers</a>
+  <a href="/breweries" class="item">Breweries</a>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui icon input">
 
-<%= session[:user_id] %>
-<% if session[:user_id].to_i == params[:id].to_i %>
-  <%= form_tag("/search", method: :get) do %>
-    <%= label_tag(:id, "Search by Beer:") %>
-    <%= collection_select(:beer, :id, Beer.all, :id, :name) %>
+        <% if session[:user_id].to_i == params[:id].to_i %>
+          <%= form_tag("/search", method: :get) do %>
+            <%= label_tag(:id, "Search by Beer:") %>
+            <%= collection_select(:beer, :id, Beer.all, :id, :name) %>
 
-    <%= submit_tag("Search") %>
-  <% end %>
-<% end %>
+             <%= submit_tag("Search") %>
+          <% end %>
+        <% end %>
+ 
+      </div>
+    </div>
+      <% if current_user %>
+    <a action="/logout" method="delete" class="ui item">Log out</a>
+      <% end %>
+  </div>
+</div>
+
+<div class="ui sizer vertical segment">
+  <div class="ui huge header"><%= @user.username %>'s profile</div>
+  <p></p>
+</div>
+
+
 
 <h2>Beers</h2>
 

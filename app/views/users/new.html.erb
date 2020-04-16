@@ -1,3 +1,53 @@
-<h1>Sign up</h1>
+<div class="ui sizer vertical segment">
+  <div class="ui huge centered header">BeerBook</div>
+  <p></p>
+</div>
 
-<%= render 'form' %>
+<div class="ui middle aligned four column centered grid">
+  <div class="four column centered row">
+    <div class="column"></div>
+  </div>
+  <div class="four column centered row">
+    <div class="column"></div>
+  </div>
+  <div class="four column centered row">
+    <div class="column"></div>
+  </div>
+  <div class="four column centered row">
+    <div class="column"></div>
+  </div>
+  <div class="four column centered row">
+    <div class="column"></div>
+  </div>
+  <div class="four column centered row">
+    <div class="column">
+      <h1>Sign up</h1>
+
+      <div class="ui form error">
+        <div class="field">
+          <%= form_with(model: @user, local: true) do |f| %>
+              <p>
+                <%= f.label :username %><br>
+                <%= f.text_field :username, placeholder: "Enter a username" %>
+              </p>
+
+            <p>
+              <%= f.label :email %><br>
+              <%= f.email_field :email, placeholder: "Enter your email" %>
+            </p>
+
+            <p>
+              <%# referring to password_digest attribute %>
+              <%= f.label :password %><br>
+              <%= f.password_field :password, placeholder: "Enter a password" %>
+            </p>
+
+            <p>
+              <%= f.submit class: "ui yellow button", value: "Sign up" %>
+            </p>
+          <% end %>
+        </div>
+      
+    </div>
+ </div>
+</div>

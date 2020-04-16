@@ -26,6 +26,14 @@
       <h1>Log in</h1>
 
       <div class="ui form error">
+
+        <% if flash[:error] %>
+        <div class="ui error message">
+          <div class="header"></div>
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+
         <div class="field">
           <%= form_with(url: login_path, local: true) do |f| %>
             <p>

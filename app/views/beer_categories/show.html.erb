@@ -26,10 +26,11 @@
 
 <h1 align="center">Beer Category</h1>
 
-<h2><%= @beer_category.category %></h2>
-
+<h2 align="center"><%= @beer_category.category %></h2>
+<div align="center">
 <ul>
 <% @beer_category.beers.each do |beer| %>
   <li><%= link_to "#{beer.name}", beer %></li>
 <% end %>
 </ul>
+</div>

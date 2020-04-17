@@ -4,16 +4,7 @@
 
   <div class="right menu">
     <div class="item">
-      <div class="ui icon input">
-        <% if session[:user_id].to_i == params[:id].to_i %>
-          <%= form_tag("/search", method: :get) do %>
-            <%= label_tag(:id, "Search by Beer:") %>
-            <%= collection_select(:beer, :id, Beer.all, :id, :name) %>
-
-            <%= submit_tag("Search") %>
-          <% end %>
-        <% end %>
-      </div>
+      
     </div>
 
       <% if current_user %>

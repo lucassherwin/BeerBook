@@ -39,11 +39,13 @@ parsed_beer_data['records'].each do |b|
     
     brew = Brewery.create(name: b['fields']['name_breweries'], street: b['fields']['address1'])
     
-    Location.create(city: b['fields']['city'], state: b['fields']['state'], country: b['fields']['country'])
+    loc = Location.new(city: b['fields']['city'], state: b['fields']['state'], country: b['fields']['country'])
     
     beer = Beer.new(name: b['fields']['name'], abv: b['fields']['abv'])
 
     beer.brewery = brew
     beer.beer_category = cat
+    loc.brewery = brew
+    loc.save
     beer.save
 end

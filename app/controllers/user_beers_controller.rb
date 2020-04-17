@@ -25,13 +25,9 @@ class UserBeersController < ApplicationController
   end
 
   def destroy
-<<<<<<< HEAD
-    @user_beer = UserBeer.find_by(UserBeer.id)
-=======
     # byebug
     
     @user_beer = UserBeer.find_by(beer_id: params[:beer_id], user_id: current_user.id)
->>>>>>> 8de0aa01acaacf68ff0e15e4ef54e6712389418d
     user = @user_beer.user
     @user_beer.destroy
     redirect_to user_path(user.id)

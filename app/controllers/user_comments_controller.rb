@@ -25,7 +25,7 @@ class UserCommentsController < ApplicationController
     @user_comment.save  
 
     if @user_comment.valid?
-        redirect_to @user_comment.user 
+        redirect_to @user_comment.beer
     else
         render :new 
     end

@@ -34,6 +34,9 @@
     <tr>
       <th>Name</th>
       <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
       <th>Website</th>
     </tr>
   </thead>
@@ -42,6 +45,9 @@
       <tr>
         <td data-label="Brewery Name"><%= @brewery.name %></td>
         <td data-label="Street"><%= @brewery.street %></td>
+        <td data-label="City"><%= @location.city %></td>
+        <td data-label="State"><%= @location.state %></td>
+        <td data-label="Country"><%= @location.country %></td>
         <td data-label="Websity"><%= link_to @brewery.website, "https://www.bostonbeer.com/our-company/brands", target: :_blank %></td>
       </tr>
   </tbody>

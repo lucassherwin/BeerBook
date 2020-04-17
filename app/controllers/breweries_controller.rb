@@ -24,5 +24,6 @@ class BreweriesController < ApplicationController
     parsed_brew_data['records'].each do |b|
       @beer_hash[b['fields']['name']] =  b['fields']['descript']
     end
+    @location = Location.find_by(brewery_id: @brewery.id)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_223537) do
+ActiveRecord::Schema.define(version: 2020_04_17_155832) do
 
   create_table "beer_categories", force: :cascade do |t|
     t.string "category"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_223537) do
     t.string "country"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "brewery_id"
   end
 
   create_table "user_beers", force: :cascade do |t|

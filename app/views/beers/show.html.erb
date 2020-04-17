@@ -31,7 +31,9 @@
 <h1 align="center"><%= @beer.name %></h1>
 <div style="float:left; width:200px; padding:30px;"> 
   <h2>Add to liked beers</h2>
-    <%= button_to "Add", user_beers_path, name: "#{params[:id]}", class: "positive ui button" %>
+    <div style="font-size: 30px; text-decoration: none; border: none;">
+    <%= button_to "🍺", user_beers_path, name: "#{params[:id]}" %>
+    </div>
 </div>
 
 <div style="float:left; width:500px; padding:30px; top:75%;" > 

@@ -12,7 +12,7 @@ class UserBeersController < ApplicationController
   
     user = current_user
   
-    beer_id = new_hash["Add"].to_i
+    beer_id = new_hash["🍺"].to_i
     @user_beer = UserBeer.new(user_id: session[:user_id], beer_id: beer_id )
 
     @user_beer.save

@@ -37,7 +37,10 @@
           <td data-label="Brewery show page"><%= link_to "#{beer.brewery.name}", beer.brewery %></td>
           <td data-label="Category"><%= link_to "#{beer.beer_category.category}", beer.beer_category %></td>
           <td data-label=""><%= link_to "Show", beer unless current_user.id == params[:id] %></td>
-          <td data-label=""><%= link_to "Delete", user_beer_path, method: :delete, data: { confirm: "Are you sure?" } unless current_user.id == params[:id] %></td>
+
+          <%# link_to "+ Service", new_my_service_path(:my_service => { :account_id => acct.id })
+ %>
+          <td data-label=""><%= link_to "Delete", user_beer_path(:beer_id => "#{beer.id}"), method: :delete, data: { confirm: "Are you sure?" } unless current_user.id == params[:id] %></td>
       </tr>
     <% end %>
   </tbody>

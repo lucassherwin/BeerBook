@@ -27,16 +27,16 @@
 
 <%= render 'layouts/user_profile' %>
 
-<h1><%= @brewery.name %>'s Show Page</h1>
+<h1 align="center"><%= @brewery.name %>'s Show Page</h1>
 <hr>
 
+<div class="ui container">
 <table class="ui celled table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Street</th>
       <th>Website</th>
-      <th>Description</th>
     </tr>
   </thead>
 
@@ -44,12 +44,14 @@
       <tr>
         <td data-label="Brewery Name"><%= @brewery.name %></td>
         <td data-label="Street"><%= @brewery.street %></td>
-        <td data-label="Websity"><%= @brewery.website %></td>
-        <td data-label="Description"><%= @brewery.description %></td>
+        <td data-label="Websity"><%= link_to @brewery.website, "https://www.bostonbeer.com/our-company/brands", target: :_blank %></td>
       </tr>
   </tbody>
 </table>
+</div>
 
+<h2 align="center">Beer Inventory</h2>
+<div class="ui container">
 <table class="ui celled table">
   <thead>
     <tr>
@@ -66,5 +68,4 @@
     <% end %>
   </tbody>
 </table>
-
-
+</div>

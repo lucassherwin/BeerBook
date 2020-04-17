@@ -1,9 +1,10 @@
 <div class="ui yellow massive secondary inverted menu">
+  
   <% if current_user %>
     <a href=<%= "/users/#{current_user.id}" %> class="item">Profile page</a>
   <% end %>
-
-    <a href="/beers" class="item">Beers</a>
+  
+    <a href="/beers" class="item" style="right:10px;">Beers</a>
     <a href="/breweries" class="item">Breweries</a>
     <div class="right menu">
       <div class="item">
@@ -23,6 +24,7 @@
         <a class="ui item" <%= link_to "Log out", logout_path, method: :delete %> </a>
       <% end %>
     </div>
+ 
 </div>
 
 <%= render 'layouts/user_profile' %>
@@ -62,7 +64,7 @@
 </div>
 
 
-
+<div class="ui container">
 <table class="ui celled table">
   <thead>
     <tr>
@@ -79,3 +81,4 @@
       </tr>
   </tbody>
 </table>
+</div>

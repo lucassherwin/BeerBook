@@ -14,10 +14,11 @@
 </div>
 
 <div class="ui sizer vertical segment">
-  <div class="ui huge header"><%= @user.username %>'s profile</div>
+  <div class="ui huge header" align="center"><%= @user.username %>'s profile</div>
 </div>
 
-<h2>Beers</h2>
+<div class="ui container">
+<h2 style="right:100px;">Beers</h2>
 <table class="ui celled table">
   <thead>
     <tr>
@@ -41,3 +42,4 @@
     <% end %>
   </tbody>
 </table>
+</div>

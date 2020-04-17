@@ -34,12 +34,13 @@ unparsed_beer_data = RestClient.get("https://data.opendatasoft.com/api/records/1
 parsed_beer_data = JSON.parse(unparsed_beer_data)
 
 parsed_beer_data['records'].each do |b|
-    Location.create(city: b['fields']['city'], state: b['fields']['state'], country: b['fields']['country'])
-
+    
     cat = BeerCategory.create(category: b['fields']['cat_name'])
-
+    
     brew = Brewery.create(name: b['fields']['name_breweries'], street: b['fields']['address1'])
-
+    
+    Location.create(city: b['fields']['city'], state: b['fields']['state'], country: b['fields']['country'])
+    
     beer = Beer.new(name: b['fields']['name'], abv: b['fields']['abv'])
 
     beer.brewery = brew
